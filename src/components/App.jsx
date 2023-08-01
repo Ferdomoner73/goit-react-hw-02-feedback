@@ -39,6 +39,8 @@ export class App extends Component {
           return {
             neutral: (prevState.neutral += 1),
           };
+        default:
+          return;
       }
     });
   };
