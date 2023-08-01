@@ -1,26 +1,34 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ButtonList, Button } from './feedback.styled';
+import { BiCool, BiFace, BiAngry } from 'react-icons/bi';
+
 const Feedback = ({ handleFunc }) => {
   return (
     <>
-      <h2>Please leave a feedback</h2>
-      <ul>
+      <ButtonList>
         <li>
-          <button type="button" id="good" onClick={handleFunc}>
-            Good
-          </button>
+          <Button type="button" id="good" onClick={handleFunc}>
+            Good <BiCool />
+          </Button>
         </li>
         <li>
-          <button type="button" id="neutral" onClick={handleFunc}>
-            Neutral
-          </button>
+          <Button type="button" id="neutral" onClick={handleFunc}>
+            Neutral <BiFace />
+          </Button>
         </li>
         <li>
-          <button type="button" id="bad" onClick={handleFunc}>
-            Bad
-          </button>
+          <Button type="button" id="bad" onClick={handleFunc}>
+            Bad <BiAngry />
+          </Button>
         </li>
-      </ul>
+      </ButtonList>
     </>
   );
+};
+
+Feedback.propTypes = {
+  handleFunc: PropTypes.func,
 };
 
 export default Feedback;

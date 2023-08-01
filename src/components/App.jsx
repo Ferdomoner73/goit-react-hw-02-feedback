@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Feedback from './Feedback';
 import Statistics from './Statistics';
+import { Section } from './ui/Section.jsx';
 import { Container } from './app.styled.js';
+import { Notification } from './Notification';
 
 let sum = {
   good: 0,
@@ -42,23 +44,33 @@ export class App extends Component {
   };
 
   countPositiveFeedbackPercentage() {
-    console.log(this.countTotalFeedback());
-    console.log(this.state.good);
-    const positivePercentage =
-      (100 / this.countTotalFeedback()) * this.state.good.toNumber();
-    console.log(positivePercentage);
+    let positivePercentage = 0;
+    if (this.state.good > 0) {
+      positivePercentage = (100 / this.countTotalFeedback()) * this.state.good;
+      const numberedPositivePersatage = Number(positivePercentage);
+      const roundedPositivePersatage = Math.ceil(numberedPositivePersatage);
+      return roundedPositivePersatage;
+    }
     return positivePercentage;
   }
 
   render() {
     return (
       <Container>
-        <Feedback handleFunc={this.handleClick} />
-        <Statistics
-          stats={this.state}
-          sum={this.countTotalFeedback()}
-          positivePercantage={this.countPositiveFeedbackPercentage()}
-        />
+        <Section title={`Please leave feedback`}>
+          <Feedback handleFunc={this.handleClick} />
+        </Section>
+        <Section title={`Statistics`}>
+          {this.countTotalFeedback() > 0 ? (
+            <Statistics
+              stats={this.state}
+              sum={this.countTotalFeedback()}
+              positivePercantage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification massage={`There is no feedback`} />
+          )}
+        </Section>
       </Container>
     );
   }
