@@ -18,12 +18,12 @@ const Statistics = ({ stats, sum, positivePercantage }) => {
 
 Statistics.propTypes = {
   stats: PropTypes.shape({
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
   }),
-  sum: PropTypes.number,
-  positivePercantage: PropTypes.number,
+  sum: PropTypes.number.isRequired,
+  positivePercantage: PropTypes.number.isRequired,
 };
 
 export default Statistics;

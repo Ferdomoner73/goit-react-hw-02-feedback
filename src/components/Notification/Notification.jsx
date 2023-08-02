@@ -10,5 +10,5 @@ export const Notification = ({ massage }) => {
 };
 
 Notification.propTypes = {
-  massage: PropTypes.string,
+  massage: PropTypes.string.isRequired,
 };

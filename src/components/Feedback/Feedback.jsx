@@ -28,7 +28,7 @@ const Feedback = ({ handleFunc }) => {
 };
 
 Feedback.propTypes = {
-  handleFunc: PropTypes.func,
+  handleFunc: PropTypes.func.isRequired,
 };
 
 export default Feedback;
