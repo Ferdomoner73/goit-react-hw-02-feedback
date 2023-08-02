@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Feedback from './Feedback';
 import Statistics from './Statistics';
 import { Section } from './ui/Section.jsx';
@@ -77,3 +78,11 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  sum: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
+};
